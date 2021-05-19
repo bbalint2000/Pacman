@@ -59,6 +59,7 @@ public class Game implements Stepable, Serializable {
         ObjectInputStream oin = new ObjectInputStream(fin);
         game = (Game) oin.readObject();
         Game.game.setState(State.PLAY);
+        fin.close();
     }
 
     //A jelenlegi játékállás elmentése
@@ -66,6 +67,7 @@ public class Game implements Stepable, Serializable {
         FileOutputStream fout = new FileOutputStream("previousgame");
         ObjectOutputStream oout = new ObjectOutputStream(fout);
         oout.writeObject(this);
+        fout.close();
     }
 
     //Átállítja a pacman mozgási irányát

@@ -28,6 +28,7 @@ public class Maze implements Stepable, Serializable {
         h = lines.size();
         w = lines.stream().mapToInt(String -> String.length()).max().getAsInt();
 
+
         for(int y=0; y<h; y++)
             for(int x=0; x<lines.get(y).length(); x++) {
                 switch (lines.get(y).charAt(x)) {
@@ -42,6 +43,7 @@ public class Maze implements Stepable, Serializable {
                     case 'P' -> pacman = new PacMan(x, y);
                 }
             }
+
     }
 
     @Override // Lépteti a Pacmant és a szellemeket, nézi hogy van e még pacdot, ha nincs akkor nyert a jatekos
